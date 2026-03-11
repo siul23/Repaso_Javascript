@@ -1,9 +1,5 @@
 //Programa que calcula AVG de estudiante las notas de los estudiantes...
 
-function hello(name){
-    return `Hello, ${name}! Welcome to this class`
-}
-
 function calculeAverage(grades){
     if (grades.length === 0) return 0
     const sum = grades.reduce((acc, grade) => acc + grade, 0)
@@ -16,19 +12,23 @@ const obtenerCalificacion = function(promedio){
     else return "Excelente"
 }
 
-const mostrarReporte = (estudiante)=>{
-    const promedio = calculeAverage(estudiante.calificaciones)
+const mostrarReporte = (student)=>{
+    const promedio = calculeAverage(student.calificaciones)
     const estado = obtenerCalificacion(promedio)
-    console.log(`El reporte de ${estudiante.nombre}:`)
+    console.log(`El reporte de ${student.nombre}:`)
     console.log(`Su promedio es ${promedio.toFixed(2)}`)
     console.log(`Su calificación es ${estado}`)
 }
 
 // Notas de un estudiante
-const estudiante ={
+const student ={
     nombre: "Carlos",
     calificaciones:[85, 90, 70, 95, 60]
 }
 
-console.log(hello(estudiante.nombre))
-mostrarReporte(estudiante)
+console.log(hello(student.nombre))
+mostrarReporte(student)
+
+console.log(`El reporte de ${student.nombre}:<br>`)
+console.log(`Su promedio es ${calculeAverage(student.calificaciones).toFixed(2)}<br>`)
+console.log(`Su calificación es ${obtenerCalificacion(calculeAverage(student.calificaciones))}<br>`)      
