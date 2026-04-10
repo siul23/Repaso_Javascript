@@ -35,5 +35,3 @@ function consult(){
      imagen.appendChild(photo)
     })
 }
-
-//test: this js is responsible for making the query to the json file
