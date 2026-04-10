@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="name"> </div>
+    
+    <script>
+        let JsonDates
+        fetch('person.json')
+            .then(response => response.json())
+            .then((exit) => { //parseado
+                JsonDates = exit
+
+                
+                let textElement = document.getElementById('name')
+                textElement.textContent = JsonDates.name
+            })
+            
+    </script>
+</body>
+</html>
