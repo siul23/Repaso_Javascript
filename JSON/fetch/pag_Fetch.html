@@ -10,14 +10,18 @@
     
     <script>
         let JsonDates
-        fetch('person.json')
-            .then(response => response.json())
-            .then((exit) => { //parseado
+        fetch('prson.json')
+            .then(response => response.json()) //promesa 1
+            .then((exit) => { //promesa 2
                 JsonDates = exit
 
-                
                 let textElement = document.getElementById('name')
                 textElement.textContent = JsonDates.name
+            })
+
+            //atrapar errores
+            .catch(function(error){
+                {alert(error)}
             })
             
     </script>
