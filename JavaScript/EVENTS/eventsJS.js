@@ -1,23 +1,26 @@
-/* Mas usadas
-event.target
-event.currentTarget
-event.prevent
-*/
+//this code is just a demonstration
 
+let socket = new WebSocket('ws://localhost:8080')
+let messageEntered = document.getElementById('messageEntered')
+let submitButton = document.getElementById('submitButton')
 
-let button = document.getElementById('button1')
-let div1 = document.getElementById('div1')
-let link1 =  document.getElementById('link1')
+function showMessage(content){
+    let messageContainer = document.getElementById('chatMessage')
+    let messageElement = document.createElement('p')
+    messageElement.innerText = content
+    messageContainer.appendChild(messageElement)
 
-function block_link(event){
-    event.preventDefault()
-    alert('Invalid link')
 }
 
-function showMessage(event){
-    alert(event.target)
-    alert(event.currentTarget)
+submitButton.onclick = function(){
+    let message = messageEntered.value
+    showMessage(message)
+    socket.send(message)
 }
 
-button.addEventListener('click', showMessage)
-button.addEventListener('click', block_link)
+//another event (onmessage)
+
+socket.onmessage = function(event){
+    let message = event.data
+    showMessage(message)
+}
